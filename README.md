@@ -19,10 +19,18 @@ tar xzf corasip-0.1.0-linux-x86_64.tar.gz
 corasip-0.1.0-linux-x86_64/bin/corasip
 ```
 
-Or install for your user with the installer (it checks the checksum and refuses to run as root):
+Or install for your user with one command. It downloads the release, checks the checksum and the signature against
+the project's release key, installs under `~/.local`, and refuses to run as root:
 
 ```
-sh packaging/install.sh --from corasip-0.1.0-linux-x86_64.tar.gz
+curl -fsSL https://github.com/anfecoraca/corasip/releases/download/v0.1.0/install.sh | CORASIP_URL=https://github.com/anfecoraca/corasip/releases/download/v0.1.0 sh
+```
+
+The one-liner runs a script fetched from GitHub. If you prefer to read it first, download `install.sh` from the
+release page and run it on the tarball you downloaded:
+
+```
+sh install.sh --from corasip-0.1.0-linux-x86_64.tar.gz
 ```
 
 Remove it with `sh packaging/uninstall.sh`. Your call history and contacts are kept on purpose.
