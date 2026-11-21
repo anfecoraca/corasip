@@ -5,6 +5,7 @@ dialing, answering, hold, transfer, contacts, call history, and TLS/SRTP where t
 
 **Status:** version 0.1.1, pre-release. The signed 0.1.1 tarball installs and launches in containers on Ubuntu 22.04
 and 24.04, Debian 12, Fedora, Arch Linux, openSUSE Tumbleweed and Rocky Linux 9 (see `tests/install-matrix.md`).
+Ubuntu 26.04 (native, Wayland) install, launch and uninstall pass on 0.1.1.
 Desktop checks (tray, hotkey, autostart) are not yet run on 0.1.1.
 
 **Licence:** GNU General Public License v3.0 or later. See `LICENSE` and `NOTICE`.
