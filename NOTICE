@@ -1,0 +1,19 @@
+corasip
+Copyright (C) 2026 anfecora
+
+This product includes software developed by others. Each component is used under its own licence. Full list and
+versions: docs/SBOM.md. Source for each bundled component is available from its upstream project; the source of
+corasip itself is in this repository.
+
+Components bundled in the release tarball:
+- PJSIP 2.17 (SIP and media engine): GNU GPL 2.0 or later. Built into the corasip binary.
+  https://www.pjsip.org/
+- Qt 6.4.2 (QtCore, QtGui, QtWidgets, QtDBus, QtSvg, QtOpenGL, QtXcbQpa): GNU LGPL 3.0. Shipped as shared libraries
+  that can be replaced by a compatible build. https://www.qt.io/
+- OpenSSL 3.0.13 (libssl, libcrypto): Apache License 2.0. https://www.openssl.org/
+- Opus (libopus): BSD 3-Clause. https://opus-codec.org/
+- SQLite (libsqlite3): public domain. https://sqlite.org/
+- ICU 56 (libicudata, libicui18n, libicuuc): ICU License (Unicode, Inc. license). https://icu.unicode.org/
+
+Qt libraries are dynamically linked and shipped as separate files in lib/, so they can be replaced with another
+version of Qt 6 built under the LGPL. The Qt source is available from https://download.qt.io/.

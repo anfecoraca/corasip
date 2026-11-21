@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=corasip
+GenericName=SIP softphone
+Comment=Open-source SIP softphone
+Exec=corasip %u
+Icon=corasip
+Terminal=false
+Categories=Network;Telephony;
+StartupWMClass=corasip
+MimeType=x-scheme-handler/sip;x-scheme-handler/tel;

@@ -1,0 +1,19 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+  <qresource prefix="/">
+    <file alias="corasip.svg">../../assets/corasip.svg</file>
+    <file alias="ringtone.wav">../../assets/ringtone.wav</file>
+    <file alias="dtmf/0.wav">../../assets/dtmf/0.wav</file>
+    <file alias="dtmf/1.wav">../../assets/dtmf/1.wav</file>
+    <file alias="dtmf/2.wav">../../assets/dtmf/2.wav</file>
+    <file alias="dtmf/3.wav">../../assets/dtmf/3.wav</file>
+    <file alias="dtmf/4.wav">../../assets/dtmf/4.wav</file>
+    <file alias="dtmf/5.wav">../../assets/dtmf/5.wav</file>
+    <file alias="dtmf/6.wav">../../assets/dtmf/6.wav</file>
+    <file alias="dtmf/7.wav">../../assets/dtmf/7.wav</file>
+    <file alias="dtmf/8.wav">../../assets/dtmf/8.wav</file>
+    <file alias="dtmf/9.wav">../../assets/dtmf/9.wav</file>
+    <file alias="dtmf/star.wav">../../assets/dtmf/star.wav</file>
+    <file alias="dtmf/hash.wav">../../assets/dtmf/hash.wav</file>
+  </qresource>
+</RCC>
