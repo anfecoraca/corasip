@@ -3,7 +3,7 @@
 # Expects /in/tarball.tar.gz with its .sha256 and .sha256.asc, and the packaging scripts under /in/packaging.
 set -eu
 export HOME=/tmp/rt-home; mkdir -p "$HOME"
-NAME=corasip-0.1.0-linux-x86_64.tar.gz
+NAME=corasip-0.1.1-linux-x86_64.tar.gz
 cp /in/tarball.tar.gz "/tmp/$NAME"
 cp /in/tarball.tar.gz.sha256 "/tmp/$NAME.sha256"
 cp /in/tarball.tar.gz.sha256.asc "/tmp/$NAME.sha256.asc"

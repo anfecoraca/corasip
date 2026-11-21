@@ -15,6 +15,7 @@ while read -r path; do
     [ -n "$path" ] || continue
     case "$path" in
         "$PREFIX"/*) ;;
+        "$HOME"/Desktop/corasip.desktop|"$(xdg-user-dir DESKTOP 2>/dev/null || echo none)"/corasip.desktop) ;;
         *) echo "skipping a path outside $PREFIX: $path" >&2; continue ;;
     esac
     if [ -d "$path" ] && [ ! -L "$path" ]; then rm -rf "$path"; else rm -f "$path"; fi

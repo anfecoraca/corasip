@@ -7,16 +7,18 @@
 # uninstaller removes exactly that.
 set -eu
 PREFIX="${CORASIP_PREFIX:-$HOME/.local}"
-VERSION="${CORASIP_VERSION:-0.1.0}"
+VERSION="${CORASIP_VERSION:-0.1.1}"
 FROM=""
 ALLOW_ROOT=0
 NO_SIG=0
+DESKTOP_ICON=1
 while [ $# -gt 0 ]; do
     case "$1" in
         --from) FROM="$2"; shift 2 ;;
         --prefix) PREFIX="$2"; shift 2 ;;
         --allow-root) ALLOW_ROOT=1; shift ;;
         --no-signature-check) NO_SIG=1; shift ;;
+        --no-desktop-icon) DESKTOP_ICON=0; shift ;;
         *) echo "unknown option: $1" >&2; exit 2 ;;
     esac
 done
@@ -120,6 +122,17 @@ printf '[Desktop Entry]\nType=Application\nName=corasip\nGenericName=SIP softpho
 {
     echo "$APP"; echo "$BIN/corasip"; echo "$ICONS/corasip.svg"; echo "$APPS/corasip.desktop"; echo "$MANIFEST"
 } > "$MANIFEST"
+# A launcher icon on the desktop, unless --no-desktop-icon. Trusted in GNOME so it can be started with a double click.
+if [ "$DESKTOP_ICON" -eq 1 ]; then
+    DESK="$(xdg-user-dir DESKTOP 2>/dev/null || true)"
+    [ -n "$DESK" ] && [ -d "$DESK" ] || DESK="$HOME/Desktop"
+    if [ -d "$DESK" ]; then
+        cp "$APPS/corasip.desktop" "$DESK/corasip.desktop" && chmod +x "$DESK/corasip.desktop"
+        command -v gio >/dev/null 2>&1 && gio set "$DESK/corasip.desktop" metadata::trusted true 2>/dev/null || true
+        echo "$DESK/corasip.desktop" >> "$MANIFEST"
+        echo "desktop icon: $DESK/corasip.desktop"
+    fi
+fi
 command -v update-desktop-database >/dev/null 2>&1 && update-desktop-database "$APPS" 2>/dev/null || true
 echo "installed corasip $VERSION to $APP"
 echo "launch with: $BIN/corasip   (add $BIN to PATH if it is not there)"

@@ -12,8 +12,12 @@ mkdir -p "$STAGE/bin" "$STAGE/lib/qt-plugins/platforms" "$STAGE/lib/qt-plugins/i
 cp "$BIN" "$STAGE/bin/corasip.bin"
 # Stripped: symbols are not needed to run; the size budget is set from the stripped size (SPEC §5.1).
 strip --strip-unneeded "$STAGE/bin/corasip.bin"
-for plugin in platforms/libqxcb.so platforms/libqoffscreen.so iconengines/libqsvgicon.so imageformats/libqsvg.so; do
+for plugin in platforms/libqxcb.so platforms/libqoffscreen.so platforms/libqwayland-generic.so platforms/libqwayland-egl.so iconengines/libqsvgicon.so imageformats/libqsvg.so; do
     cp "$QTDIR/plugins/$plugin" "$STAGE/lib/qt-plugins/$plugin"
+done
+# The Wayland platform plugin loads these helper plugins from its own folders.
+for d in wayland-decoration-client wayland-graphics-integration-client wayland-shell-integration; do
+    cp -r "$QTDIR/plugins/$d" "$STAGE/lib/qt-plugins/"
 done
 
 # Every library the binary and the plugins load that comes from the Qt install, plus the few system libraries
