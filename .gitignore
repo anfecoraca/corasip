@@ -18,21 +18,3 @@ dist/
 third_party/pjproject/
 third_party/pjproject-install/
 __pycache__/
-
-# Internal planning and records: kept local only, not published
-SPEC.md
-ROADMAP.md
-ARCHITECTURE.md
-log/
-tests/manual/
-docs/FEATURE-MATRIX.md
-docs/HANDOFF.md
-docs/LAB-TEST-SETUP.md
-docs/M*.md
-docs/PUBLISH.md
-docs/RESUME-PROMPT.md
-docs/SECURITY-REVIEW.md
-docs/plans/
-
-docs/*
-!docs/SBOM.md
