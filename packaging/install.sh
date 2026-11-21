@@ -128,7 +128,7 @@ if [ "$DESKTOP_ICON" -eq 1 ]; then
     [ -n "$DESK" ] && [ -d "$DESK" ] || DESK="$HOME/Desktop"
     if [ -d "$DESK" ]; then
         cp "$APPS/corasip.desktop" "$DESK/corasip.desktop" && chmod +x "$DESK/corasip.desktop"
-        command -v gio >/dev/null 2>&1 && gio set "$DESK/corasip.desktop" metadata::trusted true 2>/dev/null || true
+        command -v gio >/dev/null 2>&1 && gio set -t string "$DESK/corasip.desktop" metadata::trusted true 2>/dev/null || true
         echo "$DESK/corasip.desktop" >> "$MANIFEST"
         echo "desktop icon: $DESK/corasip.desktop"
     fi
