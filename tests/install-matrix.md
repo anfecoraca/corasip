@@ -28,8 +28,7 @@ the binary needs glibc 2.29 at most). Tested on 2026-11-20.
 | Ubuntu 26.04 | native (owner's laptop, Wayland session) | 0.1.1: PASS | 0.1.1: PASS (terminal and desktop icon, no Qt error) | 0.1.1: install and uninstall PASS |
 
 Container rows: 7 of 7 pass. The Ubuntu 26.04 laptop row passes on 0.1.1 (manual run, Wayland session). Linux Mint
-22.1 is still to be run on the owner's desktop. Those runs also cover the tray icon, the global hotkey on X11, and autostart at login, which containers
-cannot test.
+22.1 is still to be run on the owner's desktop for 0.1.1. The tray icon, the global hotkey on X11 and autostart at login passed on Linux Mint 22.1 on earlier builds (tray and hotkey on 2026-11-19, autostart on 2026-11-20). Containers cannot test them, and they have not been re-run on 0.1.1.
 
 ## Earlier builds
 
