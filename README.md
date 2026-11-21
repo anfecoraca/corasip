@@ -3,8 +3,9 @@
 A small, reliable SIP softphone for Linux, with the calling features people expect from a desktop phone: accounts,
 dialing, answering, hold, transfer, contacts, call history, and TLS/SRTP where the server supports it.
 
-**Status:** version 0.1.0, pre-release. Tested on Ubuntu 22.04 and 24.04, Debian 12, Fedora, Arch, openSUSE
-Tumbleweed, Rocky Linux 9 and Linux Mint 22.1 (install and launch tests; see `tests/install-matrix.md`).
+**Status:** version 0.1.0, pre-release. The signed 0.1.0 tarball installs and launches in containers on Ubuntu 22.04
+and 24.04, Debian 12, Fedora, Arch Linux, openSUSE Tumbleweed and Rocky Linux 9 (see `tests/install-matrix.md`).
+Desktop checks (tray, hotkey, autostart) are not yet run on 0.1.0.
 
 **Licence:** GNU General Public License v3.0 or later. See `LICENSE` and `NOTICE`.
 
