@@ -6,7 +6,7 @@ dialing, answering, hold, transfer, contacts, call history, and TLS/SRTP where t
 **Status:** version 0.1.2, pre-release. The signed 0.1.2 tarball installs and launches in containers on Ubuntu 22.04
 and 24.04, Debian 12, Fedora, Arch Linux, openSUSE Tumbleweed and Rocky Linux 9 (see `tests/install-matrix.md`).
 Ubuntu 26.04 (native, Wayland) install, desktop icon, launch and uninstall pass on 0.1.2.
-Tray, hotkey and autostart passed on Linux Mint 22.1 on earlier builds (2026-11-19 and 2026-11-20). Not yet re-run on 0.1.2.
+On Linux Mint 22.1 the tray icon passes on 0.1.2. The hotkey and autostart passed on earlier builds and are not yet re-run on 0.1.2.
 
 **Licence:** GNU General Public License v3.0 or later. See `LICENSE` and `NOTICE`.
 
