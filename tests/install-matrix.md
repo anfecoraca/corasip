@@ -24,11 +24,10 @@ the binary needs glibc 2.29 at most). Tested on 2026-11-20.
 | Arch Linux | archlinux:latest | resolve | PASS | PASS |
 | openSUSE Tumbleweed | opensuse/tumbleweed | resolve | PASS | PASS |
 | Rocky Linux 9 (RHEL family) | rockylinux:9 | resolve | PASS | PASS |
-| Ubuntu 26.04 | native (owner's laptop, Wayland session) | 0.1.1: PASS | 0.1.1: PASS (terminal and desktop icon, no Qt error) | 0.1.1: install and uninstall PASS |
+| Ubuntu 26.04 | native (owner's laptop, Wayland session) | 0.1.2: PASS | 0.1.2: PASS (terminal and desktop icon, no Qt error) | 0.1.2: install (with desktop icon) and uninstall PASS |
 | Linux Mint 22.1 | native (owner's desktop) | not yet run | not yet run | not yet run |
 
-Container rows: 7 of 7 pass on 0.1.2. The Ubuntu 26.04 laptop row was run on 0.1.1 (manual run, Wayland session) and has
-not been repeated on 0.1.2. Linux Mint 22.1 is still to be run on the owner's desktop. The tray icon, the global hotkey
+Container rows: 7 of 7 pass on 0.1.2. The Ubuntu 26.04 laptop row passes on 0.1.2 (manual run, Wayland session). Linux Mint 22.1 is still to be run on the owner's desktop. The tray icon, the global hotkey
 on X11 and autostart at login passed on Linux Mint 22.1 on earlier builds (tray and hotkey on 2026-11-19, autostart on
 2026-11-20). Containers cannot test them, and they have not been re-run on 0.1.2.
 
