@@ -64,14 +64,8 @@ corasip is not an emergency-calling service. Do not rely on it to reach emergenc
 ## Warranty
 
 This software is provided "as is", without warranty of any kind, express or implied, including the warranties of
-merchantability, fitness for a particular purpose and non-infringement. See sections 15 and 16 of the licence. The
-authors are not liable for any claim, damage or loss arising from the use of this software.
-
-## The reference softphone
-
-corasip is an independent program. It is not affiliated with, endorsed by, or derived from the reference softphone. The reference softphone is
-named here only to describe compatibility ("works like the reference softphone"), and its name, logo and screenshots are not used
-in the product.
+merchantability, fitness for a particular purpose and non-infringement. Sections 15 to 17 of the GNU General Public
+License, and applicable law, govern warranty and liability.
 
 ## Reporting problems
 
