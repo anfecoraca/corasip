@@ -71,7 +71,7 @@ bool acceptDisclaimer(Settings& settings, const std::string& settingsPath) {
     dlg.setWindowTitle(QObject::tr("corasip: before you start"));
     auto* text = new QLabel(QObject::tr(
         "<b>corasip is free software, provided as is.</b><br>"
-        "It comes with no warranty of any kind, as stated in the GNU General Public License (sections 15 and 16). "
+        "It comes with no warranty of any kind, as stated in the GNU General Public License (sections 15 to 17). "
         "The authors are not liable for any loss or damage from using it.<br><br>"
         "<b>It is not for emergency calls.</b> Do not rely on it to reach emergency services.<br><br>"
         "Calls, contacts and call history stay on this computer. corasip sends no telemetry.<br><br>"

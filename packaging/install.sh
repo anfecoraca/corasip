@@ -7,7 +7,7 @@
 # uninstaller removes exactly that.
 set -eu
 PREFIX="${CORASIP_PREFIX:-$HOME/.local}"
-VERSION="${CORASIP_VERSION:-0.1.1}"
+VERSION="${CORASIP_VERSION:-0.1.2}"
 FROM=""
 ALLOW_ROOT=0
 NO_SIG=0

@@ -36,6 +36,15 @@ collect "$STAGE/bin/corasip.bin"
 for p in "$STAGE"/lib/qt-plugins/*/*.so; do collect "$p"; done
 
 cp "$(dirname "$0")/../assets/corasip.svg" "$STAGE/share/corasip.svg"
+# Licence texts travel with the binary (GPL-3.0 sections 4 and 6): corasip's own licence and notices, the SBOM,
+# and the texts of the bundled components (PJSIP is GPL-2.0-or-later, Qt is LGPL-3.0, OpenSSL is Apache-2.0).
+LIC="$STAGE/share/licenses"; mkdir -p "$LIC"
+cp "$(dirname "$0")/../LICENSE" "$(dirname "$0")/../NOTICE" "$(dirname "$0")/../README.md" "$STAGE/"
+cp "$(dirname "$0")/../docs/SBOM.md" "$LIC/SBOM.md"
+cp /usr/share/common-licenses/GPL-2 "$LIC/PJSIP-GPL-2.0.txt"
+cp /usr/share/common-licenses/LGPL-3 "$LIC/Qt-LGPL-3.0.txt"
+cp /usr/share/common-licenses/Apache-2.0 "$LIC/OpenSSL-Apache-2.0.txt"
+cp "$(dirname "$0")/../LICENSE" "$LIC/corasip-GPL-3.0.txt"
 cat > "$STAGE/bin/corasip" <<'WRAP'
 #!/bin/sh
 # Starts corasip with the bundled Qt libraries and plugins.

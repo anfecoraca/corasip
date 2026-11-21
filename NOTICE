@@ -7,13 +7,19 @@ corasip itself is in this repository.
 
 Components bundled in the release tarball:
 - PJSIP 2.17 (SIP and media engine): GNU GPL 2.0 or later. Built into the corasip binary.
-  https://www.pjsip.org/
+  Source: pjproject tag 2.17, commit 5a457451fa2712ba18e12b01738e8ff3af2b26fd, attached to the release as
+  pjproject-2.17-source.tar.gz. https://github.com/pjsip/pjproject
 - Qt 6.4.2 (QtCore, QtGui, QtWidgets, QtDBus, QtSvg, QtOpenGL, QtXcbQpa): GNU LGPL 3.0. Shipped as shared libraries
   that can be replaced by a compatible build. https://www.qt.io/
-- OpenSSL 3.0.13 (libssl, libcrypto): Apache License 2.0. https://www.openssl.org/
-- Opus (libopus): BSD 3-Clause. https://opus-codec.org/
-- SQLite (libsqlite3): public domain. https://sqlite.org/
+- OpenSSL 3.0.13 (libssl, libcrypto): Apache License 2.0.
+  Source: https://www.openssl.org/source/openssl-3.0.13.tar.gz
+- Opus 1.3.1 (libopus): BSD 3-Clause.
+  Source: https://downloads.xiph.org/releases/opus/opus-1.3.1.tar.gz
+- SQLite 3.31.1 (libsqlite3): public domain.
+  Source: https://www.sqlite.org/2020/sqlite-autoconf-3310100.tar.gz
 - ICU 56 (libicudata, libicui18n, libicuuc): ICU License (Unicode, Inc. license). https://icu.unicode.org/
 
 Qt libraries are dynamically linked and shipped as separate files in lib/, so they can be replaced with another
-version of Qt 6 built under the LGPL. The Qt source is available from https://download.qt.io/.
+version of Qt 6 built under the LGPL. The Qt 6.4.2 source is available from https://download.qt.io/archive/qt/6.4/6.4.2/single/qt-everywhere-src-6.4.2.tar.xz
+
+The licence texts are in share/licenses/ inside the tarball.

@@ -241,7 +241,7 @@ void MainWindow::buildMenus() {
         QMessageBox box(this);
         box.setWindowTitle(tr("About corasip"));
         box.setTextFormat(Qt::RichText);
-        box.setText(tr("<b>corasip</b> 0.1.1: an open-source SIP softphone (GPL-3.0-or-later).<br>"
+        box.setText(tr("<b>corasip</b> 0.1.2: an open-source SIP softphone (GPL-3.0-or-later).<br>"
                        "Engine: PJSIP 2.17.<br><br>"
                        "Author: <a href=\"https://anfecora.com\">anfecora</a>"));
         box.setIconPixmap(QIcon(QStringLiteral(":/corasip.svg")).pixmap(48, 48));

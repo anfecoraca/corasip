@@ -3,10 +3,10 @@
 A small, reliable SIP softphone for Linux, with the calling features people expect from a desktop phone: accounts,
 dialing, answering, hold, transfer, contacts, call history, and TLS/SRTP where the server supports it.
 
-**Status:** version 0.1.1, pre-release. The signed 0.1.1 tarball installs and launches in containers on Ubuntu 22.04
+**Status:** version 0.1.2, pre-release. The signed 0.1.2 tarball installs and launches in containers on Ubuntu 22.04
 and 24.04, Debian 12, Fedora, Arch Linux, openSUSE Tumbleweed and Rocky Linux 9 (see `tests/install-matrix.md`).
-Ubuntu 26.04 (native, Wayland) install, launch and uninstall pass on 0.1.1.
-Tray, hotkey and autostart passed on Linux Mint 22.1 on earlier builds (2026-11-19 and 2026-11-20). Not yet re-run on 0.1.1.
+Ubuntu 26.04 (native, Wayland) install, launch and uninstall pass on 0.1.2.
+Tray, hotkey and autostart passed on Linux Mint 22.1 on earlier builds (2026-11-19 and 2026-11-20). Not yet re-run on 0.1.2.
 
 **Licence:** GNU General Public License v3.0 or later. See `LICENSE` and `NOTICE`.
 
@@ -15,23 +15,23 @@ Tray, hotkey and autostart passed on Linux Mint 22.1 on earlier builds (2026-11-
 Download the tarball and its `.sha256` file for your release. Check the checksum, unpack, and run:
 
 ```
-sha256sum -c corasip-0.1.1-linux-x86_64.tar.gz.sha256
-tar xzf corasip-0.1.1-linux-x86_64.tar.gz
-corasip-0.1.1-linux-x86_64/bin/corasip
+sha256sum -c corasip-0.1.2-linux-x86_64.tar.gz.sha256
+tar xzf corasip-0.1.2-linux-x86_64.tar.gz
+corasip-0.1.2-linux-x86_64/bin/corasip
 ```
 
 Or install for your user with one command. It downloads the release, checks the checksum and the signature against
 the project's release key, installs under `~/.local`, and refuses to run as root:
 
 ```
-curl -fsSL https://github.com/anfecoraca/corasip/releases/download/v0.1.1/install.sh | CORASIP_URL=https://github.com/anfecoraca/corasip/releases/download/v0.1.1 sh
+curl -fsSL https://github.com/anfecoraca/corasip/releases/download/v0.1.2/install.sh | CORASIP_URL=https://github.com/anfecoraca/corasip/releases/download/v0.1.2 sh
 ```
 
 The one-liner runs a script fetched from GitHub. If you prefer to read it first, download `install.sh` from the
 release page and run it on the tarball you downloaded:
 
 ```
-sh install.sh --from corasip-0.1.1-linux-x86_64.tar.gz
+sh install.sh --from corasip-0.1.2-linux-x86_64.tar.gz
 ```
 
 The installer also puts a corasip icon on your desktop. Add `--no-desktop-icon` to skip it.
@@ -41,7 +41,7 @@ The installer also puts a corasip icon on your desktop. Add `--no-desktop-icon` 
 Remove the program, its launcher, its menu entry and the desktop icon:
 
 ```
-curl -fsSL https://github.com/anfecoraca/corasip/releases/download/v0.1.1/uninstall.sh | sh
+curl -fsSL https://github.com/anfecoraca/corasip/releases/download/v0.1.2/uninstall.sh | sh
 ```
 
 or, if you have the installer's folder, `sh packaging/uninstall.sh`.
