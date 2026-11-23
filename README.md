@@ -10,6 +10,12 @@ On Linux Mint 22.1 the tray icon passes on 0.1.2. The hotkey and autostart passe
 
 **Licence:** GNU General Public License v3.0 or later. See `LICENSE` and `NOTICE`.
 
+## Screenshot
+
+The main window with a live call and the SIP trace panel (contact details redacted):
+
+![corasip with the SIP trace panel during a call](assets/screenshots/trace-call.png)
+
 ## Install
 
 Download the tarball and its `.sha256` file for your release. Check the checksum, unpack, and run:
