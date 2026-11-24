@@ -1,5 +1,6 @@
 // Unit tests for the M2 core: settings file and account rules. No display needed.
 #include "app/account_validation.hpp"
+#include "engine/sip_mask.hpp"
 #include "settings/settings.hpp"
 
 #include <sys/stat.h>
@@ -107,6 +108,38 @@ void testValidation() {
 
 }  // namespace
 
+// The settings file location: CORASIP_CONFIG, then XDG_CONFIG_HOME, then ~/.config.
+void testSettingsPath() {
+    ::unsetenv("CORASIP_CONFIG");
+    ::unsetenv("XDG_CONFIG_HOME");
+    ::setenv("HOME", "/home/tester", 1);
+    CHECK(corasip::defaultSettingsPath() == "/home/tester/.config/corasip/corasip.ini");
+    ::setenv("XDG_CONFIG_HOME", "/xdg", 1);
+    CHECK(corasip::defaultSettingsPath() == "/xdg/corasip/corasip.ini");
+    ::setenv("CORASIP_CONFIG", "/custom/file.ini", 1);
+    CHECK(corasip::defaultSettingsPath() == "/custom/file.ini");
+    ::unsetenv("CORASIP_CONFIG");
+    ::unsetenv("XDG_CONFIG_HOME");
+}
+
+// SIP trace masking: digest responses never reach the trace or the logs, the header name stays.
+void testDigestMask() {
+    using corasip::maskDigests;
+    CHECK(maskDigests("Authorization: Digest username=\"u\", response=\"secret\"\r\n")
+          == "Authorization: <hidden>\r\n");
+    CHECK(maskDigests("Proxy-Authorization: Digest response=\"secret\"\r\n")
+          == "Proxy-Authorization: <hidden>\r\n");
+    CHECK(maskDigests("authorization: Digest response=\"secret\"\r\n") == "authorization: <hidden>\r\n");
+    CHECK(maskDigests("Call-ID: abc\r\nTo: <sip:1091@lab>\r\n") == "Call-ID: abc\r\nTo: <sip:1091@lab>\r\n");
+    CHECK(maskDigests("Authorization: Digest response=\"secret\"") == "Authorization: <hidden>");
+    CHECK(maskDigests("Auth: x\r\n") == "Auth: x\r\n");
+    const std::string msg = "INVITE sip:a@b SIP/2.0\r\nCall-ID: c1\r\nAuthorization: Digest response=\"s\"\r\n"
+                            "CSeq: 2 REGISTER\r\n\r\n";
+    const std::string masked = maskDigests(msg);
+    CHECK(masked == "INVITE sip:a@b SIP/2.0\r\nCall-ID: c1\r\nAuthorization: <hidden>\r\nCSeq: 2 REGISTER\r\n\r\n");
+    CHECK(masked.find("secret") == std::string::npos);
+}
+
 int main() {
     const std::string dir = scratchDir();
     ::mkdir(dir.c_str(), 0700);
@@ -114,6 +147,8 @@ int main() {
     testMissingFileIsDefaults(dir);
     testAccountNotStoredWithoutPassword(dir);
     testValidation();
+    testDigestMask();
+    testSettingsPath();
     if (failures == 0) std::printf("PASS: core unit tests\n");
     return failures == 0 ? 0 : 1;
 }

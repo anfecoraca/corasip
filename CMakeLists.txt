@@ -37,7 +37,7 @@ endforeach()
 link_directories(${CORASIP_PJ_PREFIX}/lib)
 
 # Engine wrapper: the only code that includes PJSUA2 (M1 step 5).
-add_library(corasip_engine STATIC src/engine/engine.cpp)
+add_library(corasip_engine STATIC src/engine/engine.cpp src/engine/sip_mask.cpp)
 target_include_directories(corasip_engine PUBLIC src)
 target_include_directories(corasip_engine SYSTEM PRIVATE ${CORASIP_PJ_PREFIX}/include)
 target_compile_definitions(corasip_engine PRIVATE ${PJ_DEFINES})
