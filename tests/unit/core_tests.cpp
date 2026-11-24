@@ -88,6 +88,13 @@ void testValidation() {
     spaced.user = "a b";
     CHECK(!corasip::validateAccount(spaced).empty());
 
+    // A server address with a space is refused with its own message, and nothing else is reported.
+    corasip::AccountSettings spacedServer = ok;
+    spacedServer.server = "sip example.test";
+    const auto serverErrors = corasip::validateAccount(spacedServer);
+    CHECK(serverErrors.size() == 1);
+    CHECK(serverErrors.size() == 1 && serverErrors[0] == "SIP server cannot contain spaces.");
+
     // M5D: SRTP needs TLS signalling (SPEC D13). Over UDP or TCP the account is refused.
     corasip::AccountSettings srtpUdp = ok;
     srtpUdp.srtp = true;
